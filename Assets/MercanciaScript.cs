@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class MercanciaScript : MonoBehaviour
 {
-   void OnCollisionEnter(Collision collision)
-     {
+    public float cost;
+    public MoneyManager moneyManager;
+
+    void Start()
+    {
+        moneyManager = FindObjectOfType<MoneyManager>();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
         if (collision.gameObject.name == "Player")
         {
+            // Actualizar dinero por la compra
+            moneyManager.UpdateMoney(-cost);
             Destroy(gameObject);
         }
     }
