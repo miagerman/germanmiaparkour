@@ -20,6 +20,7 @@ public class InteractionArea : MonoBehaviour
         if (mercancia)
         {
             Destroy(mercancia.gameObject);
+            StopInteraction();
         }
     }
 }
